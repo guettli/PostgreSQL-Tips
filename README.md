@@ -13,7 +13,7 @@ select * from mytable where mytable::text ilike '%foo%';
 
 Don't do this via code. This is just for manually debugging/introspection.
 
-### Which column is not unique?
+### Which name is not unique?
 
 You have a table with a primary key "ID" and a column "name".
 
