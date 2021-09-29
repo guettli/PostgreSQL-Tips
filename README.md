@@ -17,7 +17,7 @@ Don't do this via code. This is just for manually debugging/introspection.
 
 You have a table with a primary key "ID" and a column "name".
 
-Which rows have a name which is not unique? Which IDs to these rows have?
+Which rows have a name which is not unique? Which IDs do these rows have?
 
 ```
 select name, array_agg(id), count(*) from id_name_table group by name having count(*)>1;
