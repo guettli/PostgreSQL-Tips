@@ -27,6 +27,9 @@ Result:
  foo    | {100171,100170}        |     2
  bar    | {100384,100654,100670} |     3
 ```
+## Tuning PostgreSQL according to underlaying hardware
+
+https://github.com/le0pard/pgtune
 
 ## WOL
 
