@@ -31,6 +31,25 @@ Result:
 
 https://github.com/le0pard/pgtune
 
+### Compare data two databases
+
+Imagine you have an data-import script, which is written by a former employee who is not reachable any more.
+
+Now you want to check what this script is doing (in your development environment).
+
+The tool [pg_dump_splitsort](https://github.com/akaihola/pgtricks#pg_dump_splitsort) can help.
+
+It takes a dump created by `pg_dump` and splits it into several files. One file per table, each file is sorted, so that
+you can use a diff tool like `meld` to compare two directires: 
+
+```
+meld old-data/ new-data
+```
+
+
+
+
+
 ## WOL
 
 Güttli working out loud:
