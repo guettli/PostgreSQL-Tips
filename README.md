@@ -46,6 +46,21 @@ you can use a diff tool like `meld` to compare two directires:
 meld old-data/ new-data
 ```
 
+# psql \x --> expanded table formatting mode
+
+If you want to inspect one row, it is easier for the human eyes to see the columns below each other.
+
+```
+psql
+\x
+select my_table where id = 1234;
+
+-[ RECORD 1 ]---
+id       | 1234
+foo      | bar
+text     | ...
+```
+
 
 
 
