@@ -61,6 +61,33 @@ foo      | bar
 text     | ...
 ```
 
+# psql \h update
+
+You want to have a short introduction to the syntax of an SQL command?
+
+Example:
+
+```
+\h update
+
+Command:     UPDATE
+Description: update rows of a table
+Syntax:
+[ WITH [ RECURSIVE ] with_query [, ...] ]
+UPDATE [ ONLY ] table_name [ * ] [ [ AS ] alias ]
+    SET { column_name = { expression | DEFAULT } |
+          ( column_name [, ...] ) = [ ROW ] ( { expression | DEFAULT } [, ...] ) |
+          ( column_name [, ...] ) = ( sub-SELECT )
+        } [, ...]
+    [ FROM from_item [, ...] ]
+    [ WHERE condition | WHERE CURRENT OF cursor_name ]
+    [ RETURNING * | output_expression [ [ AS ] output_name ] [, ...] ]
+
+URL: https://www.postgresql.org/docs/13/sql-update.html
+
+```
+
+
 
 
 
