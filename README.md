@@ -87,6 +87,37 @@ URL: https://www.postgresql.org/docs/13/sql-update.html
 
 ```
 
+# Aggregate values in group-by: string_agg()
+
+The table `ticket_labels` is a N:M table: One ticket can have
+several labels, and labels can get attached to many tickets.
+
+Task: Show me all IDs of label for each ticket. Skip tickets which only have one label.
+
+```
+drop table if exists ticket_labels;
+
+create table ticket_labels (
+        ticket_id integer,
+        label_id integer
+);
+
+insert into ticket_labels 
+    values
+ (1, 2),
+ (1, 3),
+ (2, 2),
+ (3, 1);
+
+select ticket_id, string_agg(label_id::text, ' ') from ticket_labels group by ticket_id having count(label_id)>1;
+```
+
+Result:
+```
+ ticket_id | string_agg 
+-----------+------------
+         1 | 2 3
+```
 
 
 
