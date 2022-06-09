@@ -142,7 +142,7 @@ CREATE TRIGGER yell_trigger
    EXECUTE PROCEDURE yell();
 ```
 
-
+When you execute the code, you will get an exception and a stracktrace which shows which line of code modifies `your_table`.
 
 
 
