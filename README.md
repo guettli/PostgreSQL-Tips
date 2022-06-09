@@ -144,6 +144,12 @@ CREATE TRIGGER yell_trigger
 
 When you execute the code, you will get an exception and a stracktrace which shows which line of code modifies `your_table`.
 
+To remove the trigger:
+
+```
+DROP TRIGGER yell_trigger ON your_table;
+```
+
 
 
 
