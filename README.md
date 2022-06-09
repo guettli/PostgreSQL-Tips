@@ -120,6 +120,30 @@ Result:
 ```
 
 
+# Raise Exception on INSERT/UPDATE
+
+Imagine you work on a large code base which is new to you.
+
+The code somewhere updates a table, but you don't know which particular
+code lines execute the update.
+
+You can create a trigger which raises an exception. This way you can find
+the corresponding code easily:
+
+```
+CREATE FUNCTION yell() RETURNS trigger
+   LANGUAGE plpgsql AS
+$$BEGIN
+   RAISE EXCEPTION 'yell';
+END;$$;
+
+CREATE TRIGGER yell_trigger
+   BEFORE UPDATE OR INSERT ON your_table FOR EACH ROW
+   EXECUTE PROCEDURE yell();
+```
+
+
+
 
 
 
