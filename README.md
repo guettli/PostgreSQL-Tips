@@ -150,6 +150,24 @@ To remove the trigger:
 DROP TRIGGER yell_trigger ON your_table;
 ```
 
+# NOT IN (subquery) --> NOT EXISTS
+
+```
+select * from foo where col not in (1, null); -- always returns 0 rows
+```
+
+Use `NOT EXISTS`
+
+Example: You have table `bar` which has a ForeignKey to table `foo`. You want to list all rows of `foo` which
+don't have a ForeignKey in `bar` pointing to a row in `foo`.
+
+```
+select * from foo where NOT EXISTS (select foo_id from bar where bar.foo_id=foo.id);
+```
+
+
+[PostgreSQL Wiki about "NOT IN"](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_NOT_IN)
+
 
 
 
