@@ -169,6 +169,38 @@ select * from foo where NOT EXISTS (select foo_id from bar where bar.foo_id=foo.
 [PostgreSQL Wiki about "NOT IN"](https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_NOT_IN)
 
 
+# Anti-Join
+
+Three ways to get all items which are not in a second table.
+
+```
+SELECT i
+  FROM a
+  WHERE i NOT IN (SELECT i FROM b);
+  ```
+
+Slow
+
+```
+SELECT a.i FROM a
+EXCEPT
+SELECT b.i FROM b;
+```
+Better
+
+```
+SELECT a.i
+  FROM a
+  WHERE NOT EXISTS
+    (SELECT b.i FROM b WHERE a.i = b.i);
+```
+fastest.
+
+
+
+Source: https://www.crunchydata.com/blog/rise-of-the-anti-join
+
+
 
 
 ## WOL
