@@ -200,6 +200,11 @@ fastest.
 
 Source: https://www.crunchydata.com/blog/rise-of-the-anti-join
 
+# Native DB GUI
+
+In most cases I just use `psql`.
+
+This is nice: [DBeaver](https://dbeaver.io/) and IntelliJ IDE.
 
 
 
